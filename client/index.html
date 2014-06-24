@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chatterbox</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/square.css">
+
+    <!-- dependencies -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <!-- your scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="scripts/app.js"></script>
+  </head>
+  <body>
+    <div class="header">      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 head-left">
+
+            <section class="panel panel-box">
+              <div id="refreshBtn" class="panel-left panel-item bg-warning pointer">
+                <i class="fa fa-refresh" style="font-size:63px;"></i>
+              </div>
+              <div class="panel-right panel-item bg-reverse">
+                <!-- <p class="size-h1">ChaterBox</p>
+                <p class="text-muted"></p> -->
+              </div>
+            </section>
+          </div>
+          <div class="col-md-8 head-right">
+            <section class="panel panel-box">
+              <div class="panel-left panel-item bg-default">
+                <p class="size-h1">Chatter<strong>Box</strong></p>
+              </div>
+              <div class="panel-right panel-item bg-reverse">
+                <!-- <i class="fa fa-comments-o text-huge"></i>
+                <p class="text-muted">Box</p> -->                
+              </div>
+              <div class="panel-right panel-item bg-info">
+                <i class="fa fa-comments-o" style="font-size:63px;"></i>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 sidebar">
+
+          <div class="panel" id="roomPanel">
+            <div class="panel-heading">
+                Rooms
+              <button type="button" id="showCreate" class="btn btn-info pull-right btn-xs" style="margin:;"><i class="fa fa-plus"></i></button>
+            </div>
+            <div class="input-group newGroup" style="display:none;">
+              <input id="createRoomInput" type="text" class="form-control" placeholder="Room title. . . ">
+              <span class="input-group-btn">
+                <button type="button" id="createRoomBtn" class="btn btn-info"><i class="fa fa-plus"></i></button>
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="panel">
+            <div id="roomsList" class="list-group"></div>
+          </div>
+          <div class="panel">
+            <h4>Users</h4>
+          </div>
+          <div class="panel">
+            <div id="usersList" class="list-group"></div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <!-- <div class="panel">
+            <div class="input-group">
+              <input type="text" class="form-control" id="createMsgInput" placeholder="Create Message . . .">
+              <span class="input-group-btn">
+                <button id="createMsgBtn" type="button" class="btn btn-plus btn-sm">Send</button>
+              </span>
+            </div>
+          </div> -->
+          <div class="panel">
+            <div class="" id="panel-head">
+              
+            </div>
+            <ul id="messagesList" class="list-group"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,3 +1,10 @@
+var url   = require("url");
+var fs    = require('fs');
+var statusCode = 200;
+var postCode  =  201;
+var errorCode  =  404;
+var index = fs.readFileSync('./client/index.html');
+
 /* You should implement your request handler function in this file.
  * And hey! This is already getting passed to http.createServer()
  * in basic-server.js. But it won't work as is.
@@ -14,23 +21,49 @@ var handleRequest = function(request, response) {
 
   console.log("Serving request type " + request.method + " for url " + request.url);
 
-  var statusCode = 200;
-
-  /* Without this line, this server wouldn't work. See the note
-   * below about CORS. */
   var headers = defaultCorsHeaders;
+  headers['Content-Type'] = "text/html";
 
-  headers['Content-Type'] = "text/plain";
+  var message = JSON.stringify({results: [{username: "Jono", message: "Do my bidding!"}]});  
+
+  if(request.url === '/classes/messages' && request.method === 'GET'){
+    response.writeHead(statusCode, headers);
+    response.end(index);
+  }
+  if(request.url === '/classes/messages' && request.method === 'POST'){
+
+    response.writeHead(postCode, headers);
+    response.end(index);
+  } else {
+    response.writeHead(errorCode, headers);
+    response.end(index);
+  }
+
+  response.end(index);
 
   /* .writeHead() tells our server what HTTP status code to send back */
-  response.writeHead(statusCode, headers);
-
   /* Make sure to always call response.end() - Node will not send
    * anything back to the client until you do. The string you pass to
    * response.end() will be the body of the response - i.e. what shows
    * up in the browser.*/
-  response.end("Hello, World!");
 };
+handleRequest.handler = function(request, response){
+
+  var headers = defaultCorsHeaders;
+  headers['Content-Type'] = "text/html";
+
+  var message = JSON.stringify({results: [{username: "Jono", message: "Do my bidding!"}]});
+  if(request.url === '/classes/room1' && request.method === 'GET'){
+    response.writeHead(statusCode, headers);
+    response.end(message);
+  } else if(request.url === '/classes/room1' && request.method === 'POST'){
+    response.writeHead(postCode, headers);
+    response.end();
+  } else {
+    response.writeHead(errorCode, headers);
+    response.end();
+  }
+}
 
 /* These headers will allow Cross-Origin Resource Sharing (CORS).
  * This CRUCIAL code allows this server to talk to websites that
@@ -43,3 +76,5 @@ var defaultCorsHeaders = {
   "access-control-allow-headers": "content-type, accept",
   "access-control-max-age": 10 // Seconds.
 };
+
+module.exports = handleRequest

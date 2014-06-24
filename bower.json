@@ -1,0 +1,27 @@
+{
+  "name": "2014-06-chatterbox-server",
+  "version": "0.0.0",
+  "homepage": "https://github.com/joelcoxokc/2014-06-chatterbox-server",
+  "authors": [
+    "Joel Cox"
+  ],
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "fontawesome": "~4.1.0",
+    "moment": "~2.7.0",
+    "underscore": "~1.6.0"
+  }
+}
